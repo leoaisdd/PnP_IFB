@@ -71,7 +71,7 @@ end
 itr = 3;
 % rho=6;
 gamma=1/6;
-alpha=0;
+alpha=0; %  %alpha=0 ista, alpha=0.05, 0.2, 0.9 sIFB case
 %   x=zeros(dim(1),dim(2),max_itr);
 x(:,:,1)=v;
 x(:,:,2)=v;
@@ -93,8 +93,8 @@ while(itr<=max_itr)
 %% uIFB scheme
 %      alpha=1-3/itr;
       t0=t;
-      t=sqrt(4*t0^2+1)/2;
-     alpha=(t0-1)/t;
+      t=sqrt(4*t0^2+1)/2; % FISTA case
+     alpha=(t0-1)/t; 
      x_old = x(:,:,itr-1);
      ss=x(:,:,itr-1)+alpha*(x(:,:,itr-1)-x(:,:,itr-2));
      hh=1-y./(imfilter(ss, h, 'circular', 'conv')+eps);
