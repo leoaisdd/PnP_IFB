@@ -1,29 +1,5 @@
 function [out,PSNR] = PlugPlayADMM_deblur(y,h,raw,lambda,method,opts,M)
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%out = PlugPlayADMM_deblur(y,h,lambda,method,opts)
-%deblurs image y by solving the ADMM:
-%
-%inversion step: x=argmin_x(||Ax-y||^2+rho/2||x-(v-u)||^2)
-%denoising step: v=Denoise(x+u)
-%      update u: u=u+(x-v)
-%
-%Input:           y    -  the observed gray scale image
-%                 h    -  blur kernel
-%              lambda  -  regularization parameter
-%              method  -  denoiser, e.g., 'BM3D'
-%       opts.rho       -  internal parameter of ADMM {1}
-%       opts.gamma     -  parameter for updating rho {1}
-%       opts.maxitr    -  maximum number of iterations for ADMM {20}
-%       opts.tol       -  tolerance level for residual {1e-4}   
-%       ** default values of opts are given in {}. 
-%
-%Output:          out  -  recovered gray scale image 
-%
-%Xiran Wang and Stanley Chan
-%Copyright 2016
-%Purdue University, West Lafayette, In, USA.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % Check inputs
 if nargin<4
     error('not enough input, try again \n');
